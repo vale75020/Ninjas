@@ -20,7 +20,7 @@ import React from "react";
 const Ninjas = ({ninjas}) => {
   const ninjaList = ninjas.map(ninja => {
     return ninja.age > 20 ? (
-      <div className="ninja" key={ninja.id}>
+      <div className="ninja" key={ninja.id} style={{backgroundColor:`${ninja.belt}`, fontSize:"20px",width:"50%", padding:"10px", margin:"10px", color:"red",border:"1px solid black",minWidth:"350px"}}>      
         <div>Name: {ninja.name}</div>
         <div>Age: {ninja.age}</div>
         <div>Belt: {ninja.belt}</div>
