@@ -14,16 +14,26 @@ export default class App extends Component{
   addNinja = (ninja) => { // on pass la function comme props au composant AddNinja et elle prend en parametre ninja
     // console.log(ninja)
     ninja.id = Math.random()
-    let ninjas = [...this.state.ninjas, ninja]  // une copie de l'array ninjas du state avec le nouveau ninja
+    let newarrayninja = [...this.state.ninjas, ninja]  // une copie de l'array ninjas du state avec le nouveau ninja
     this.setState({
-      ninjas : ninjas
+      ninjas : newarrayninja
+    })
+  }
+
+  deleteNinja = (id) => {
+    // console.log(id)
+    let ninjas = this.state.ninjas.filter(ninja => {
+      return ninja.id !== id // condition true
+    })
+    this.setState({
+      ninjas // ninjas: ninjas
     })
   }
 render() {
   return (
     <div className="App">
       <h1>Welcome on my awesome Ninjas App!!!</h1>
-      <Ninjas ninjas={this.state.ninjas} />
+      <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja}/>
       <AddNinja addNinja={this.addNinja} />
     </div>
   );

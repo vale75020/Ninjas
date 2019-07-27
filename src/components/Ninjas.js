@@ -17,13 +17,14 @@ import React from "react";
 //   return <div className="ninja-list">{ninjaList}</div>;
 // };
 
-const Ninjas = ({ninjas}) => {
+const Ninjas = ({ninjas, deleteNinja}) => {
   const ninjaList = ninjas.map(ninja => {
     return ninja.age > 20 ? (
       <div className="ninja" key={ninja.id} style={{backgroundColor:`${ninja.belt}`, fontSize:"20px",width:"50%", padding:"10px", margin:"10px", color:"red",border:"1px solid black",minWidth:"350px"}}>      
         <div>Name: {ninja.name}</div>
         <div>Age: {ninja.age}</div>
         <div>Belt: {ninja.belt}</div>
+        <button onClick={() => {deleteNinja(ninja.id)}}>Delete Ninja</button>
       </div>
     ) : null;
   });
